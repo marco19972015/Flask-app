@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
-</head>
-<body>
-    <!-- The curely brackets are coming from Jinja -->
+<!-- This syntax just says please extend whatever layout.html looks like -->
+{% extends "layout.html" %}
+
+<!-- In Jinja we are saying "Hey Python here comes the body of this page" -->
+{% block body %}
+
     <form action="/greet" method="get">
         <input autocomplete="off" placeholder="Name" autofocus name="name" type="text">
         <button type="submit">Greet</button>
     </form>
-</body>
-</html>
+
+<!-- Here we say "Hey Python that's it for the body of this page" -->
+{% endblock %}
