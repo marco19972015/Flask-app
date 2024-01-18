@@ -6,10 +6,12 @@ app = Flask(__name__)
 # This code decides based on the browsers request what file or files we will send from the server to the browser
 @app.route("/")
 def index():
-    if "name" in request.args:
-        name = request.args["name"]
-    else: 
-        name = "World"
-    
+    # Instead of using if else block, I can use 'get' method
+    # First argument is what value we want to get
+    # Second value is what value we want the default as
+    name = request.args.get("name", "World")
+
     # Remember for render_template to run I need a tempalte folder (DUH)
-    return render_template("index.html")
+        # place holder referes to the literal placehold in the template
+        # name refers to the variable above (but can be any value)
+    return render_template("index.html", name=name) 
