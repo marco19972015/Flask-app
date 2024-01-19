@@ -4,7 +4,10 @@
 <!-- In Jinja we are saying "Hey Python here comes the body of this page" -->
 {% block body %}
 
-    <form action="/greet" method="get">
+    <!-- GET request being the default isn't always the best option to use since we can see what is being set in the path of the url
+         Instead using POST will help with that (Note that only doing this will result in a 405 error) 
+         POST hides the data being sent through the request from the URL-->
+    <form action="/" method="post">
         <input autocomplete="off" placeholder="Name" autofocus name="name" type="text">
         <button type="submit">Greet</button>
     </form>
